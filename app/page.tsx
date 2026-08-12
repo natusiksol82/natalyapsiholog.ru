@@ -149,15 +149,15 @@ export default function Home() {
             <li><span>Стоимость</span><strong>от 2 000 ₽</strong></li>
           </ul>
         </div>
-        <div className="hero-visual" aria-label="Спокойное пространство для разговора">
-          <div className="orb orb-one" />
-          <div className="orb orb-two" />
-          <div className="portrait-card">
-            <span className="portrait-initial">Н</span>
-            <div>
-              <p>Наталья</p>
-              <span>Ваш психолог</span>
-            </div>
+        <div className="hero-visual">
+          <img
+            className="hero-photo"
+            src="/natalya-psychologist.png"
+            alt="Психолог Наталья в кабинете в Ростове-на-Дону"
+          />
+          <div className="photo-caption">
+            <p>Наталья</p>
+            <span>Практикующий психолог</span>
           </div>
           <blockquote>«Важные перемены начинаются с безопасного разговора»</blockquote>
         </div>
@@ -206,9 +206,9 @@ export default function Home() {
         </div>
         <div className="about-copy">
           <p className="about-lead">Считаю, что хорошая терапия начинается с уважения к опыту человека и честного, внимательного контакта.</p>
-          <p>Постоянно совершенствую знания и навыки: сейчас прохожу обучение на клинического психолога в Московском институте психоанализа и регулярно повышаю квалификацию.</p>
+          <p>Имею диплом практического психолога ДГПУ. Постоянно совершенствую знания и навыки: сейчас прохожу обучение на клинического психолога в Московском институте психоанализа и регулярно повышаю квалификацию.</p>
           <div className="education">
-            <div><span>Образование</span><strong>Практический психолог</strong><p>ДГПУ</p></div>
+            <div><span>Образование</span><strong>Диплом практического психолога</strong><p>ДГПУ</p></div>
             <div><span>Повышение квалификации</span><strong>Профессиональные курсы</strong><p>СПб ИДПО</p></div>
             <div><span>Сейчас</span><strong>Клиническая психология</strong><p>Московский институт психоанализа</p></div>
           </div>
