@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 
 const avitoUrl =
   "https://www.avito.ru/rostov-na-donu/predlozheniya_uslug/psiholog_ochno_i_onlayn_4558239797?utm_campaign=native&utm_medium=item_page_android&utm_source=soc_sharing_seller";
+const phoneHref = "tel:+79515064659";
+const telegramUrl = "https://t.me/natalya_psy_rostov";
+const whatsappUrl = "https://wa.me/79515064659";
+const maxUrl = "https://max.ru/u/f9LHodD0cOLEpKs25ptnx6_3lewS47t-0zyE9VbgKaOjy8UJ6OyQuySAJLE";
 
 export const metadata: Metadata = {
   title: "Психолог Наталья в Ростове-на-Дону | Очно и онлайн",
@@ -62,7 +66,7 @@ const faqs = [
   {
     question: "Как записаться?",
     answer:
-      "Нажмите кнопку «Написать на Авито», коротко опишите удобный формат и желаемое время. Наталья ответит и подтвердит встречу по своему расписанию.",
+      "Выберите удобный способ связи: Telegram, WhatsApp, MAX, телефон или Авито. Коротко опишите желаемый формат и время. Наталья ответит и подтвердит встречу по своему расписанию.",
   },
 ];
 
@@ -83,8 +87,9 @@ const jsonLd = {
         addressRegion: "Ростовская область",
         addressCountry: "RU",
       },
+      telephone: "+7 951 506-46-59",
       priceRange: "2000–2500 ₽",
-      sameAs: [avitoUrl],
+      sameAs: [telegramUrl, whatsappUrl, maxUrl, avitoUrl],
       knowsAbout: [
         "Когнитивно-поведенческая терапия",
         "Тревога",
@@ -125,7 +130,7 @@ export default function Home() {
           <a href="#about">Обо мне</a>
           <a href="#prices">Стоимость</a>
         </nav>
-        <a className="button button-small" href={avitoUrl} target="_blank" rel="noreferrer">
+        <a className="button button-small" href="#contacts">
           Записаться
         </a>
       </header>
@@ -138,8 +143,8 @@ export default function Home() {
             Помогаю справляться с тревогой, понимать свои эмоции и находить внутреннюю опору в сложные периоды жизни.
           </p>
           <div className="hero-actions">
-            <a className="button" href={avitoUrl} target="_blank" rel="noreferrer">
-              Написать на Авито <span aria-hidden="true">↗</span>
+            <a className="button" href="#contacts">
+              Выбрать способ связи <span aria-hidden="true">↓</span>
             </a>
             <a className="text-link" href="#approach">Как проходит работа <span aria-hidden="true">↓</span></a>
           </div>
@@ -228,7 +233,7 @@ export default function Home() {
             <p>Разговор через удобный мессенджер в спокойной обстановке.</p>
             <ul><li>Индивидуально</li><li>60 минут</li><li>По предварительной записи</li></ul>
             <div className="price"><strong>2 000 ₽</strong><span>за встречу</span></div>
-            <a className="button" href={avitoUrl} target="_blank" rel="noreferrer">Выбрать онлайн <span>↗</span></a>
+            <a className="button" href="#contacts">Выбрать онлайн <span>↓</span></a>
           </article>
           <article className="price-card">
             <div><span className="format-label">Очно</span><span className="availability">Ростов-на-Дону</span></div>
@@ -236,7 +241,7 @@ export default function Home() {
             <p>Личная встреча в кабинете в районе Комсомольской площади.</p>
             <ul><li>Индивидуально</li><li>60 минут</li><li>Точный адрес после записи</li></ul>
             <div className="price"><strong>2 500 ₽</strong><span>за встречу</span></div>
-            <a className="button button-outline" href={avitoUrl} target="_blank" rel="noreferrer">Выбрать очно <span>↗</span></a>
+            <a className="button button-outline" href="#contacts">Выбрать очно <span>↓</span></a>
           </article>
         </div>
       </section>
@@ -256,21 +261,35 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="cta section">
+      <section className="cta section" id="contacts">
         <p className="eyebrow light"><span /> Первый шаг</p>
-        <h2>Можно начать с короткого сообщения</h2>
+        <h2>Выберите удобный способ связи</h2>
         <p>Напишите, какой формат вам подходит и в какое время удобно встретиться. Наталья ответит на вопросы и подтвердит запись.</p>
-        <a className="button button-light" href={avitoUrl} target="_blank" rel="noreferrer">Написать на Авито <span>↗</span></a>
+        <div className="contact-grid">
+          <a className="contact-card primary-contact" href={telegramUrl} target="_blank" rel="noreferrer" aria-label="Написать Наталье в Telegram">
+            <span className="contact-mark">T</span><span><strong>Telegram</strong><small>@natalya_psy_rostov</small></span><b aria-hidden="true">↗</b>
+          </a>
+          <a className="contact-card primary-contact" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Написать Наталье в WhatsApp">
+            <span className="contact-mark">W</span><span><strong>WhatsApp</strong><small>Открыть диалог</small></span><b aria-hidden="true">↗</b>
+          </a>
+          <a className="contact-card" href={maxUrl} target="_blank" rel="noreferrer" aria-label="Написать Наталье в MAX">
+            <span className="contact-mark">M</span><span><strong>MAX</strong><small>Написать в мессенджере</small></span><b aria-hidden="true">↗</b>
+          </a>
+          <a className="contact-card" href={phoneHref} aria-label="Позвонить Наталье по номеру плюс семь девятьсот пятьдесят один пятьсот шесть сорок шесть пятьдесят девять">
+            <span className="contact-mark">☎</span><span><strong>Позвонить</strong><small>+7 951 506-46-59</small></span><b aria-hidden="true">↗</b>
+          </a>
+        </div>
+        <a className="avito-link" href={avitoUrl} target="_blank" rel="noreferrer">Или написать через объявление на Авито <span aria-hidden="true">↗</span></a>
       </section>
 
       <footer>
         <div className="brand footer-brand"><span className="brand-mark">Н</span><span><strong>Наталья</strong><small>практикующий психолог</small></span></div>
         <p>Очно у Комсомольской площади<br />Онлайн по договоренности</p>
-        <div className="footer-links"><a href="#support">Направления</a><a href="#about">Обо мне</a><a href="#prices">Стоимость</a></div>
+        <div className="footer-contacts"><a href={phoneHref}>+7 951 506-46-59</a><a href={telegramUrl} target="_blank" rel="noreferrer">@natalya_psy_rostov</a></div>
         <p className="legal">Психологическое консультирование не заменяет медицинскую или экстренную помощь. В ситуации непосредственной угрозы жизни обратитесь по номеру 112.</p>
       </footer>
 
-      <a className="mobile-cta" href={avitoUrl} target="_blank" rel="noreferrer">Записаться на консультацию <span>↗</span></a>
+      <a className="mobile-cta" href="#contacts">Выбрать способ связи <span>↑</span></a>
     </main>
   );
 }

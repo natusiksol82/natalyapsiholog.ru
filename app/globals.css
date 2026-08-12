@@ -147,10 +147,23 @@ details p { margin: -3px 55px 25px 0; color: #68746f; font-size: 14px; line-heig
 .cta h2 { max-width: 850px; margin: 0 auto; }
 .cta > p:not(.eyebrow) { max-width: 650px; margin: 28px auto 35px; color: #bdcbc5; line-height: 1.7; }
 .button-light { background: var(--coral); border-color: var(--coral); }
+.contact-grid { max-width: 960px; margin: 42px auto 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left; }
+.contact-card { min-height: 90px; display: grid; grid-template-columns: 48px 1fr auto; align-items: center; gap: 17px; padding: 18px 22px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.05); transition: transform .2s, background .2s, border-color .2s; }
+.contact-card:hover { transform: translateY(-2px); background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.45); }
+.contact-card.primary-contact { background: var(--white); color: var(--forest-deep); border-color: var(--white); }
+.contact-card.primary-contact:hover { background: #f0e9df; }
+.contact-mark { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-family: var(--font-serif); font-size: 20px; }
+.contact-card strong, .contact-card small { display: block; }
+.contact-card strong { font-family: var(--font-serif); font-size: 23px; font-weight: 600; }
+.contact-card small { margin-top: 3px; color: #9fafaa; font-size: 11px; }
+.contact-card.primary-contact small { color: #66766f; }
+.contact-card b { color: var(--coral); font-size: 18px; font-weight: 400; }
+.avito-link { display: inline-block; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.4); color: #d5ded9; font-size: 12px; }
 
 footer { width: min(1240px, calc(100% - 48px)); margin: 0 auto; padding: 58px 0 28px; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: start; gap: 30px; }
 footer > p { margin: 3px 0 0; color: #68746f; font-size: 12px; line-height: 1.7; }
-.footer-links { display: flex; justify-content: flex-end; gap: 22px; font-size: 12px; }
+.footer-contacts { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; font-size: 12px; }
+.footer-contacts a { border-bottom: 1px solid #c8c3bb; }
 .legal { grid-column: 1 / -1; padding-top: 25px; border-top: 1px solid #d2ccc3; font-size: 10px; }
 .mobile-cta { display: none; }
 
@@ -198,8 +211,10 @@ footer > p { margin: 3px 0 0; color: #68746f; font-size: 12px; line-height: 1.7;
   .price-card { padding: 30px 24px; }
   .faq { gap: 18px; }
   summary { font-size: 21px; }
+  .contact-grid { grid-template-columns: 1fr; margin-top: 34px; }
+  .contact-card { min-height: 82px; padding: 15px 17px; }
   footer { grid-template-columns: 1fr; padding-bottom: 40px; }
-  .footer-links { justify-content: flex-start; }
+  .footer-contacts { align-items: flex-start; }
   .legal { grid-column: 1; }
   .mobile-cta { position: fixed; display: flex; align-items: center; justify-content: space-between; left: 0; right: 0; bottom: 0; height: 68px; padding: 0 24px; background: var(--coral); color: white; font-size: 13px; font-weight: 700; z-index: 50; box-shadow: 0 -10px 30px rgba(33,49,44,.12); }
 }
