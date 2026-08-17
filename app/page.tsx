@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
+import { siteConfig } from "./site-config";
 
-const avitoUrl =
-  "https://www.avito.ru/rostov-na-donu/predlozheniya_uslug/psiholog_ochno_i_onlayn_4558239797?utm_campaign=native&utm_medium=item_page_android&utm_source=soc_sharing_seller";
-const phoneHref = "tel:+79515064659";
-const telegramUrl = "https://t.me/natalya_psy_rostov";
-const whatsappUrl = "https://wa.me/79515064659";
-const maxUrl = "https://max.ru/u/f9LHodD0cOLEpKs25ptnx6_3lewS47t-0zyE9VbgKaOjy8UJ6OyQuySAJLE";
+const avitoUrl = siteConfig.contacts.avito;
+const phoneHref = `tel:${siteConfig.contacts.phone.replace(/[^+\d]/g, "")}`;
+const telegramUrl = siteConfig.contacts.telegram;
+const whatsappUrl = siteConfig.contacts.whatsapp;
+const maxUrl = siteConfig.contacts.max;
 
 export const metadata: Metadata = {
-  title: "Психолог Наталья в Ростове-на-Дону | Очно и онлайн",
+  title: { absolute: siteConfig.title },
   description:
     "Индивидуальные консультации психолога: тревога, самооценка, отношения и сложные жизненные ситуации. Очно у Комсомольской площади и онлайн.",
   alternates: { canonical: "/" },
