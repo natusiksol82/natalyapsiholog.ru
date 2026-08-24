@@ -129,7 +129,7 @@ export const content = {
         { author: "Роман", date: "14 июля 2025", text: reviewOriginals.roman, originalText: null },
         { author: "Ольга", date: "28 марта 2025", text: reviewOriginals.olgaKandybka, originalText: null },
         { author: "Ольга", date: "17 февраля 2025", text: reviewOriginals.olga, originalText: null },
-        { author: "Пользователь удалён", date: "27 января 2025", text: reviewOriginals.deletedUser, originalText: null },
+        { author: "Анонимный", date: "27 января 2025", text: reviewOriginals.deletedUser, originalText: null },
         { author: "Анна", date: "22 января 2025", text: reviewOriginals.anna, originalText: null },
         { author: "Алёна", date: "21 января 2025", text: reviewOriginals.alyona, originalText: null },
       ],
@@ -336,7 +336,7 @@ export const content = {
           originalText: reviewOriginals.olga,
         },
         {
-          author: "Avito user (account deleted)",
+          author: "Anonymous",
           date: "27 January 2025",
           text: "I consulted Natalya about misunderstandings in my relationships with relatives. I felt much better: I arrived carrying a heavy burden and left with relief. The tension was gone. After two sessions, my concern had been explored enough for me not to feel that weight any more. Later, I found the strength and courage to take the first step towards reconciliation. Thank you!",
           originalText: reviewOriginals.deletedUser,
