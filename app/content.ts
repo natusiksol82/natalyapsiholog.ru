@@ -123,12 +123,12 @@ export const content = {
       sourceLabel: "Отзыв с Авито",
       originalLabel: "Русский оригинал",
       items: [
-        { author: "Артём Косарев", date: "16 июня", text: reviewOriginals.artem, originalText: null },
+        { author: "Артём", date: "16 июня", text: reviewOriginals.artem, originalText: null },
         { author: "Валентина", date: "1 февраля", text: reviewOriginals.valentina, originalText: null },
         { author: "Мария", date: "14 сентября 2025", text: reviewOriginals.maria, originalText: null },
         { author: "Роман", date: "14 июля 2025", text: reviewOriginals.roman, originalText: null },
-        { author: "Ольга Владимировна Кандыбка", date: "28 марта 2025", text: reviewOriginals.olgaKandybka, originalText: null },
-        { author: "Ольга Владимировна", date: "17 февраля 2025", text: reviewOriginals.olga, originalText: null },
+        { author: "Ольга", date: "28 марта 2025", text: reviewOriginals.olgaKandybka, originalText: null },
+        { author: "Ольга", date: "17 февраля 2025", text: reviewOriginals.olga, originalText: null },
         { author: "Пользователь удалён", date: "27 января 2025", text: reviewOriginals.deletedUser, originalText: null },
         { author: "Анна", date: "22 января 2025", text: reviewOriginals.anna, originalText: null },
         { author: "Алёна", date: "21 января 2025", text: reviewOriginals.alyona, originalText: null },
@@ -300,7 +300,7 @@ export const content = {
       originalLabel: "Russian original",
       items: [
         {
-          author: "Artyom Kosarev",
+          author: "Artyom",
           date: "16 June",
           text: "Thank you very much to Natalya; she helped me begin changing for the better.",
           originalText: reviewOriginals.artem,
@@ -324,13 +324,13 @@ export const content = {
           originalText: reviewOriginals.roman,
         },
         {
-          author: "Olga Vladimirovna Kandybka",
+          author: "Olga",
           date: "28 March 2025",
           text: "Natalya is very comfortable to talk to. We worked through the issue that had been worrying me. Thank you!",
           originalText: reviewOriginals.olgaKandybka,
         },
         {
-          author: "Olga Vladimirovna",
+          author: "Olga",
           date: "17 February 2025",
           text: "I came to Natalya while going through a difficult period of change in my personal and professional life. Natalya conducted our first consultation professionally and sensitively. I had begun to think that something was wrong with me because people I considered closest to me had treated me with humiliation and disregard. This led to a prolonged loss of energy and motivation, as well as a fear of forming new connections. Thanks to Natalya, I felt my confidence, enjoyment of life and inner support return. Thank you 🙏",
           originalText: reviewOriginals.olga,
