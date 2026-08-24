@@ -241,8 +241,8 @@ footer > p { margin: 3px 0 0; color: #68746f; font-size: 12px; line-height: 1.7;
   .education span { grid-row: auto; margin-bottom: 8px; }
   .reviews { padding-left: 0; padding-right: 0; }
   .reviews-heading { padding: 0 24px; }
-  .review-wall { display: flex; gap: 12px; width: 100%; padding: 0 24px 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
-  .review-card { flex: 0 0 min(86vw, 350px); margin: 0; padding: 24px; scroll-snap-align: start; }
+  .review-wall { columns: 1; padding: 0 24px; }
+  .review-card { margin-bottom: 12px; padding: 24px; }
   .review-card blockquote { font-size: 20px; }
   .review-meta { align-items: start; flex-direction: column; gap: 10px; }
   .price-grid { grid-template-columns: 1fr; }
