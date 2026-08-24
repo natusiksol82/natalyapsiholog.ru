@@ -116,7 +116,6 @@ export const content = {
       lead: "Отзывы опубликованы клиентами на Авито после состоявшейся сделки. Текст приводится без изменений.",
       count: "8 отзывов",
       sourceLabel: "Отзыв с Авито",
-      transactionLabel: "Сделка состоялась",
       originalLabel: "Русский оригинал",
       items: [
         { author: "Валентина", date: "1 февраля", text: reviewOriginals.valentina, originalText: null },
@@ -289,7 +288,6 @@ export const content = {
       lead: "These reviews were originally published in Russian on Avito after verified transactions. English translations are provided for readability, with every original available below.",
       count: "8 reviews",
       sourceLabel: "Review on Avito",
-      transactionLabel: "Verified transaction",
       originalLabel: "Russian original",
       items: [
         {

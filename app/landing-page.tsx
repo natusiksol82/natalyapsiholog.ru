@@ -188,7 +188,6 @@ export function LandingPage({ locale }: { locale: Locale }) {
                   {page.reviews.sourceLabel} <span aria-hidden="true">↗</span>
                 </a>
               </div>
-              <span className="review-verified">{page.reviews.transactionLabel}</span>
             </article>
           ))}
         </div>
