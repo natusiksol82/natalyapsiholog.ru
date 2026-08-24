@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-html-link-for-pages -- locale changes cross root layouts and must reload the document */
 import { content, type Locale, type SiteContent } from "./content";
+import { SiteHeader } from "./site-header";
 import { siteConfig } from "./site-config";
 
 const avitoUrl = siteConfig.contacts.avito;
@@ -57,30 +57,7 @@ export function LandingPage({ locale }: { locale: Locale }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label={page.brand.homeLabel}>
-          <span className="brand-mark">{page.brand.initial}</span>
-          <span>
-            <strong>{page.brand.name}</strong>
-            <small>{page.brand.role}</small>
-          </span>
-        </a>
-        <nav aria-label={page.navigation.label}>
-          <a href="#support">{page.navigation.support}</a>
-          <a href="#about">{page.navigation.about}</a>
-          <a href="#reviews">{page.navigation.reviews}</a>
-          <a href="#prices">{page.navigation.prices}</a>
-        </nav>
-        <div className="header-actions">
-          <div className="language-switcher" aria-label={page.languageSwitcherLabel}>
-            <a href="/" lang="ru" aria-current={locale === "ru" ? "page" : undefined}>RU</a>
-            <a href="/en/" lang="en" aria-current={locale === "en" ? "page" : undefined}>EN</a>
-          </div>
-          <a className="button button-small header-contact" href="#contacts">
-            {page.navigation.contact}
-          </a>
-        </div>
-      </header>
+      <SiteHeader locale={locale} page={page} />
 
       <section className="hero" id="top">
         <div className="hero-copy">

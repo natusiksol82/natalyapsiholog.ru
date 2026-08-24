@@ -57,6 +57,9 @@ export const content = {
       reviews: "Отзывы",
       prices: "Стоимость",
       contact: "Записаться",
+      menu: "Меню",
+      openMenu: "Открыть меню",
+      closeMenu: "Закрыть меню",
     },
     hero: {
       eyebrow: "Психолог в Ростове-на-Дону и онлайн",
@@ -229,6 +232,9 @@ export const content = {
       reviews: "Reviews",
       prices: "Fees",
       contact: "Book a session",
+      menu: "Menu",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
     hero: {
       eyebrow: "Psychologist in Rostov-on-Don and online",
