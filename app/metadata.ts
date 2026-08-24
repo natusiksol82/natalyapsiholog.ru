@@ -44,7 +44,7 @@ export function createMetadata(locale: Locale): Metadata {
       description: page.seo.twitterDescription,
       images: [page.seo.openGraphImage],
     },
-    icons: { icon: "/favicon.svg" },
+    icons: { icon: "/favicon.svg?v=2" },
     robots: { index: true, follow: true },
   };
 }
