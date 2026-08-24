@@ -1,6 +1,8 @@
 export type Locale = "ru" | "en";
 
 const reviewOriginals = {
+  artem:
+    "Спасибо большое Наталье, она помогла начать меняться в лучшую сторону",
   valentina:
     "Наталья - чуткий и внимательный специалист, который помогает мне увидеть ситуацию под другим углом. Ценю ее поддержку и заинтересованность в моем состоянии. Сеансы с ней приносят мне пользу, и я уверена в позитивном результате. Большое спасибо!",
   maria:
@@ -117,10 +119,11 @@ export const content = {
       eyebrow: "Отзывы",
       title: "Что говорят после консультаций",
       lead: "Отзывы опубликованы клиентами на Авито после состоявшейся сделки. Текст приводится без изменений.",
-      count: "8 отзывов",
+      count: "9 отзывов",
       sourceLabel: "Отзыв с Авито",
       originalLabel: "Русский оригинал",
       items: [
+        { author: "Артём Косарев", date: "16 июня", text: reviewOriginals.artem, originalText: null },
         { author: "Валентина", date: "1 февраля", text: reviewOriginals.valentina, originalText: null },
         { author: "Мария", date: "14 сентября 2025", text: reviewOriginals.maria, originalText: null },
         { author: "Роман", date: "14 июля 2025", text: reviewOriginals.roman, originalText: null },
@@ -292,10 +295,16 @@ export const content = {
       eyebrow: "Client reviews",
       title: "Reflections after counselling",
       lead: "These reviews were originally published in Russian on Avito after verified transactions. English translations are provided for readability, with every original available below.",
-      count: "8 reviews",
+      count: "9 reviews",
       sourceLabel: "Review on Avito",
       originalLabel: "Russian original",
       items: [
+        {
+          author: "Artyom Kosarev",
+          date: "16 June",
+          text: "Thank you very much to Natalya; she helped me begin changing for the better.",
+          originalText: reviewOriginals.artem,
+        },
         {
           author: "Valentina",
           date: "1 February",

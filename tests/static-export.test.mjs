@@ -27,6 +27,7 @@ test("exports a deployable static site", async () => {
   assert.match(html, /href="https:\/\/wa\.me\/79515064659"/);
   assert.match(html, /id="reviews"/);
   assert.match(html, /Текст приводится без изменений/);
+  assert.match(html, /Спасибо большое Наталье, она помогла начать меняться в лучшую сторону/);
   assert.match(html, /Наталья - чуткий и внимательный специалист/);
 
   assert.match(englishHtml, /<html lang="en">/);
@@ -45,6 +46,8 @@ test("exports a deployable static site", async () => {
   assert.match(englishHtml, /href="https:\/\/wa\.me\/79515064659"/);
   assert.match(englishHtml, /These reviews were originally published in Russian on Avito/);
   assert.match(englishHtml, /Russian original/);
+  assert.match(englishHtml, /Thank you very much to Natalya; she helped me begin changing for the better/);
+  assert.match(englishHtml, /Спасибо большое Наталье, она помогла начать меняться в лучшую сторону/);
   assert.match(englishHtml, /Natalya is a sensitive and attentive professional/);
   assert.match(englishHtml, /Наталья - чуткий и внимательный специалист/);
 
