@@ -8,8 +8,9 @@ const expectedSiteUrl = process.env.SITE_URL;
 test("exports a deployable static site", async () => {
   assert.ok(expectedSiteUrl, "SITE_URL must be set while testing the export");
 
-  const [html, robots, sitemap] = await Promise.all([
+  const [html, englishHtml, robots, sitemap] = await Promise.all([
     readFile(new URL("index.html", outputRoot), "utf8"),
+    readFile(new URL("en/index.html", outputRoot), "utf8"),
     readFile(new URL("robots.txt", outputRoot), "utf8"),
     readFile(new URL("sitemap.xml", outputRoot), "utf8"),
   ]);
@@ -18,15 +19,37 @@ test("exports a deployable static site", async () => {
   assert.match(html, /<title>Психолог Наталья в Ростове-на-Дону \| Очно и онлайн<\/title>/);
   assert.match(html, new RegExp(`<link rel="canonical" href="${escapeRegex(expectedSiteUrl)}/?"`));
   assert.match(html, new RegExp(`<meta property="og:url" content="${escapeRegex(expectedSiteUrl)}/?"`));
+  assert.match(html, new RegExp(`<link rel="alternate" hrefLang="en" href="${escapeRegex(expectedSiteUrl)}/en/"`));
+  assert.match(html, /href="\/en\/" lang="en"/);
+  assert.doesNotMatch(html, /обучение завершено/);
   assert.match(html, /href="tel:\+79515064659"/);
   assert.match(html, /href="https:\/\/t\.me\/natalya_psy_rostov"/);
   assert.match(html, /href="https:\/\/wa\.me\/79515064659"/);
+
+  assert.match(englishHtml, /<html lang="en">/);
+  assert.match(englishHtml, /<title>Psychologist Natalya in Rostov-on-Don \| In Person and Online<\/title>/);
+  assert.match(englishHtml, new RegExp(`<link rel="canonical" href="${escapeRegex(expectedSiteUrl)}/en/"`));
+  assert.match(englishHtml, new RegExp(`<meta property="og:url" content="${escapeRegex(expectedSiteUrl)}/en/"`));
+  assert.match(englishHtml, new RegExp(`<link rel="alternate" hrefLang="ru-RU" href="${escapeRegex(expectedSiteUrl)}/?"`));
+  assert.match(englishHtml, /<meta property="og:locale" content="en_US"/);
+  assert.match(englishHtml, new RegExp(`<meta property="og:image" content="${escapeRegex(expectedSiteUrl)}/og-en[.]png"`));
+  assert.match(englishHtml, /href="\/en\/" lang="en" aria-current="page"/);
+  assert.match(englishHtml, /"inLanguage":"en"/);
+  assert.match(englishHtml, /Moscow Institute of Psychoanalysis/);
+  assert.doesNotMatch(englishHtml, /training completed/i);
+  assert.match(englishHtml, /href="tel:\+79515064659"/);
+  assert.match(englishHtml, /href="https:\/\/t\.me\/natalya_psy_rostov"/);
+  assert.match(englishHtml, /href="https:\/\/wa\.me\/79515064659"/);
+
   assert.match(robots, new RegExp(`Sitemap: ${escapeRegex(expectedSiteUrl)}/sitemap\\.xml`));
   assert.match(sitemap, new RegExp(`<loc>${escapeRegex(expectedSiteUrl)}/?</loc>`));
+  assert.match(sitemap, new RegExp(`<loc>${escapeRegex(expectedSiteUrl)}/en/</loc>`));
+  assert.match(sitemap, new RegExp(`hreflang="en" href="${escapeRegex(expectedSiteUrl)}/en/"`));
 
   await Promise.all([
     access(new URL("favicon.svg", outputRoot)),
     access(new URL("og.png", outputRoot)),
+    access(new URL("og-en.png", outputRoot)),
     access(new URL("natalya-psychologist.png", outputRoot)),
   ]);
 });
