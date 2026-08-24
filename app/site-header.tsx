@@ -9,11 +9,19 @@ type HeaderContent = Pick<SiteContent, "brand" | "navigation" | "languageSwitche
 
 export function SiteHeader({ locale, page }: { locale: Locale; page: HeaderContent }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null);
   const wasMenuOpen = useRef(false);
 
   const closeMenu = () => setIsMenuOpen(false);
+
+  useEffect(() => {
+    const updateHeader = () => setIsScrolled(window.scrollY > 24);
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    return () => window.removeEventListener("scroll", updateHeader);
+  }, []);
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -68,7 +76,7 @@ export function SiteHeader({ locale, page }: { locale: Locale; page: HeaderConte
   ];
 
   return (
-    <header className="site-header">
+    <header className={`site-header${isScrolled ? " is-scrolled" : ""}`}>
       <a className="brand" href="#top" aria-label={page.brand.homeLabel}>
         <span className="brand-mark">{page.brand.initial}</span>
         <span>
