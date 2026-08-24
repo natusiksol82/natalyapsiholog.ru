@@ -68,6 +68,7 @@ export function LandingPage({ locale }: { locale: Locale }) {
         <nav aria-label={page.navigation.label}>
           <a href="#support">{page.navigation.support}</a>
           <a href="#about">{page.navigation.about}</a>
+          <a href="#reviews">{page.navigation.reviews}</a>
           <a href="#prices">{page.navigation.prices}</a>
         </nav>
         <div className="header-actions">
@@ -155,6 +156,41 @@ export function LandingPage({ locale }: { locale: Locale }) {
               <div key={item.label}><span>{item.label}</span><strong>{item.title}</strong><p>{item.institution}</p></div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="reviews section" id="reviews">
+        <div className="section-heading reviews-heading">
+          <p className="eyebrow"><span /> {page.reviews.eyebrow}</p>
+          <h2>{page.reviews.title}</h2>
+          <div className="reviews-intro">
+            <strong>{page.reviews.count}</strong>
+            <p>{page.reviews.lead}</p>
+          </div>
+        </div>
+        <div className="review-wall">
+          {page.reviews.items.map((review) => (
+            <article className="review-card" key={`${review.author}-${review.date}`}>
+              <span className="review-quote" aria-hidden="true">“</span>
+              <blockquote>{review.text}</blockquote>
+              {review.originalText ? (
+                <details className="review-original" lang="ru">
+                  <summary>{page.reviews.originalLabel}<span aria-hidden="true">+</span></summary>
+                  <p>{review.originalText}</p>
+                </details>
+              ) : null}
+              <div className="review-meta">
+                <div>
+                  <strong>{review.author}</strong>
+                  <span>{review.date}</span>
+                </div>
+                <a href={avitoUrl} target="_blank" rel="noreferrer">
+                  {page.reviews.sourceLabel} <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+              <span className="review-verified">{page.reviews.transactionLabel}</span>
+            </article>
+          ))}
         </div>
       </section>
 

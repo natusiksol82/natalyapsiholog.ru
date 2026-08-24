@@ -33,7 +33,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .brand strong, .brand small { display: block; }
 .brand strong { font-family: var(--font-serif); font-size: 22px; line-height: .95; font-weight: 600; }
 .brand small { margin-top: 5px; font-size: 9px; text-transform: uppercase; letter-spacing: .16em; color: #63736d; }
-nav { display: flex; gap: 34px; font-size: 13px; }
+nav { display: flex; gap: 27px; font-size: 13px; }
 nav a { padding: 12px 0; position: relative; }
 nav a:after { content: ""; position: absolute; left: 0; bottom: 6px; width: 0; height: 1px; background: var(--coral); transition: width .2s; }
 nav a:hover:after { width: 100%; }
@@ -111,6 +111,33 @@ h2 { font-size: clamp(46px, 5vw, 72px); line-height: .98; }
 .education strong { color: var(--ink); font-family: var(--font-serif); font-size: 22px; font-weight: 600; }
 .education p { margin: 2px 0 0; font-size: 13px; }
 
+.reviews { background: #eef0eb; overflow: hidden; }
+.reviews-heading { align-items: start; }
+.reviews-intro { max-width: 500px; }
+.reviews-intro > strong { display: block; margin-bottom: 13px; color: var(--coral); font-family: var(--font-serif); font-size: 27px; font-weight: 600; }
+.reviews-intro p { margin: 0; color: #66726d; line-height: 1.75; }
+.review-wall { columns: 3; column-gap: 16px; }
+.review-card { break-inside: avoid; display: inline-block; width: 100%; margin: 0 0 16px; padding: 28px; background: var(--white); border: 1px solid #d4d9d3; position: relative; }
+.review-card:nth-child(4) { background: var(--forest); border-color: var(--forest); color: white; }
+.review-quote { display: block; height: 34px; color: var(--coral); font-family: var(--font-serif); font-size: 66px; line-height: .8; }
+.review-card blockquote { margin: 13px 0 30px; font-family: var(--font-serif); font-size: 21px; line-height: 1.4; }
+.review-original { margin: -5px 0 27px; border-top: 1px solid #d9ddd7; border-bottom: 1px solid #d9ddd7; }
+.review-original summary { min-height: 52px; font-family: var(--font-sans); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.review-original summary span { font-size: 18px; }
+.review-original p { margin: 0 0 18px; color: #66726d; font-size: 13px; line-height: 1.65; }
+.review-card:nth-child(4) .review-original { border-color: rgba(255,255,255,.22); }
+.review-card:nth-child(4) .review-original p { color: #cbd4d0; }
+.review-meta { display: flex; justify-content: space-between; align-items: end; gap: 18px; padding-top: 20px; border-top: 1px solid #d9ddd7; }
+.review-meta div > strong, .review-meta div > span { display: block; }
+.review-meta div > strong { font-family: var(--font-serif); font-size: 19px; font-weight: 600; }
+.review-meta div > span { margin-top: 4px; color: #78827e; font-size: 10px; }
+.review-meta > a { color: #66726d; border-bottom: 1px solid #aeb5b1; font-size: 10px; white-space: nowrap; }
+.review-verified { display: block; margin-top: 14px; color: #84908a; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.review-card:nth-child(4) .review-meta { border-color: rgba(255,255,255,.22); }
+.review-card:nth-child(4) .review-meta div > span,
+.review-card:nth-child(4) .review-meta > a,
+.review-card:nth-child(4) .review-verified { color: #c2cec8; }
+
 .prices { background: var(--sand); }
 .centered { text-align: center; display: block; }
 .centered .eyebrow { justify-content: center; }
@@ -182,6 +209,7 @@ footer > p { margin: 3px 0 0; color: #68746f; font-size: 12px; line-height: 1.7;
   .about, .faq { grid-template-columns: 1fr; gap: 30px; }
   .about-title, .faq-title { position: static; }
   .about-copy { padding-top: 0; }
+  .review-wall { columns: 2; }
 }
 
 @media (max-width: 620px) {
@@ -211,6 +239,12 @@ footer > p { margin: 3px 0 0; color: #68746f; font-size: 12px; line-height: 1.7;
   .approach-note p { font-size: 25px; }
   .education > div { grid-template-columns: 1fr; }
   .education span { grid-row: auto; margin-bottom: 8px; }
+  .reviews { padding-left: 0; padding-right: 0; }
+  .reviews-heading { padding: 0 24px; }
+  .review-wall { display: flex; gap: 12px; width: 100%; padding: 0 24px 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .review-card { flex: 0 0 min(86vw, 350px); margin: 0; padding: 24px; scroll-snap-align: start; }
+  .review-card blockquote { font-size: 20px; }
+  .review-meta { align-items: start; flex-direction: column; gap: 10px; }
   .price-grid { grid-template-columns: 1fr; }
   .price-card { padding: 30px 24px; }
   .faq { gap: 18px; }

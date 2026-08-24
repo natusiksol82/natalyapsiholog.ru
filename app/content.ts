@@ -1,5 +1,24 @@
 export type Locale = "ru" | "en";
 
+const reviewOriginals = {
+  valentina:
+    "Наталья - чуткий и внимательный специалист, который помогает мне увидеть ситуацию под другим углом. Ценю ее поддержку и заинтересованность в моем состоянии. Сеансы с ней приносят мне пользу, и я уверена в позитивном результате. Большое спасибо!",
+  maria:
+    "Была у Натальи на сессии, всё понравилось. Грамотный специалист, сразу поняла суть проблемы, предложила способы работы над ней. Ещё хочу выделить тёплую атмосферу, которую Наталья смогла создать, с ней легко и приятно общаться.",
+  roman:
+    "Искренне благодарю Наталью за консультацию! Она внимательно выслушала мои сомнения и помогла взглянуть на ситуацию иначе. Подход Натальи оказался эффективным — благодаря ей я смог чётко сформулировать своё решение и почувствовать уверенность в нём. Её поддержка была бесценна, и теперь я ощущаю внутреннюю гармонию и готовность действовать дальше. Огромная благодарность Наталье за помощь и понимание!",
+  olgaKandybka:
+    "С Натальей комфортно общаться. Разобрали мой волнующий вопрос. Спасибо!",
+  olga:
+    "Обратилась к Наталье переживая сложный период изменений в личной и профессиональной сфере. Наталья профессионально и чутко провела нашу первую консультацию. Мои мысли о том, что это со мной что-то не так, раз люди, как мне казалось самые близкие, позволили себе унижать меня и относится с пренебрежением, привели к длительному упадку сил, настроения и к страху вообще строить новые контакты. Благодаря Наталья я почувствовала свою уверенность, вкус к жизни, и опору на себя. Спасибо 🙏",
+  deletedUser:
+    "Обращалась к Наталье за консультацией на предмет недопониманий во взаимоотношениях с родственниками. Мне стало намного легче, пришла с грузом, ушла с облегчением. Напряжение ушло. За 2 сессии мой запрос был проработан достаточно для меня, чтобы больше не испытывать такой тяжести. А потом, я нашла в себе силы и смелость, сделала первый шаг к примирению. Спасибо!",
+  anna:
+    "Вчера была первая сессия с Натальей. Был определенный запрос, который разобрали по полочкам. Наметили план на ближайшие несколько сессий. На душе радостно, что появился свет в конце туннеля. Благодарю за сессию.",
+  alyona:
+    "Хочу поблагодарить Наталью за нашу сессию. Наталья выслушала меня и помогла увидеть то, чего я не замечала. В итоге, ушла с пониманием что делать дальше. Спасибо",
+} as const;
+
 export const content = {
   ru: {
     locale: "ru",
@@ -35,6 +54,7 @@ export const content = {
       label: "Основная навигация",
       support: "С чем работаю",
       about: "Обо мне",
+      reviews: "Отзывы",
       prices: "Стоимость",
       contact: "Записаться",
     },
@@ -88,6 +108,25 @@ export const content = {
         { label: "Образование", title: "Диплом практического психолога", institution: "ДГПУ" },
         { label: "Повышение квалификации", title: "Профессиональные курсы", institution: "СПб ИДПО" },
         { label: "Дополнительное обучение", title: "Клиническая психология", institution: "Московский институт психоанализа" },
+      ],
+    },
+    reviews: {
+      eyebrow: "Отзывы",
+      title: "Что говорят после консультаций",
+      lead: "Отзывы опубликованы клиентами на Авито после состоявшейся сделки. Текст приводится без изменений.",
+      count: "8 отзывов",
+      sourceLabel: "Отзыв с Авито",
+      transactionLabel: "Сделка состоялась",
+      originalLabel: "Русский оригинал",
+      items: [
+        { author: "Валентина", date: "1 февраля", text: reviewOriginals.valentina, originalText: null },
+        { author: "Мария", date: "14 сентября 2025", text: reviewOriginals.maria, originalText: null },
+        { author: "Роман", date: "14 июля 2025", text: reviewOriginals.roman, originalText: null },
+        { author: "Ольга Владимировна Кандыбка", date: "28 марта 2025", text: reviewOriginals.olgaKandybka, originalText: null },
+        { author: "Ольга Владимировна", date: "17 февраля 2025", text: reviewOriginals.olga, originalText: null },
+        { author: "Пользователь удалён", date: "27 января 2025", text: reviewOriginals.deletedUser, originalText: null },
+        { author: "Анна", date: "22 января 2025", text: reviewOriginals.anna, originalText: null },
+        { author: "Алёна", date: "21 января 2025", text: reviewOriginals.alyona, originalText: null },
       ],
     },
     prices: {
@@ -188,6 +227,7 @@ export const content = {
       label: "Main navigation",
       support: "How I can help",
       about: "About me",
+      reviews: "Reviews",
       prices: "Fees",
       contact: "Book a session",
     },
@@ -241,6 +281,65 @@ export const content = {
         { label: "Education", title: "Degree in Practical Psychology", institution: "DGPU" },
         { label: "Professional development", title: "Professional courses", institution: "SPb IDPO" },
         { label: "Additional training", title: "Clinical Psychology", institution: "Moscow Institute of Psychoanalysis" },
+      ],
+    },
+    reviews: {
+      eyebrow: "Client reviews",
+      title: "Reflections after counselling",
+      lead: "These reviews were originally published in Russian on Avito after verified transactions. English translations are provided for readability, with every original available below.",
+      count: "8 reviews",
+      sourceLabel: "Review on Avito",
+      transactionLabel: "Verified transaction",
+      originalLabel: "Russian original",
+      items: [
+        {
+          author: "Valentina",
+          date: "1 February",
+          text: "Natalya is a sensitive and attentive professional who helps me see the situation from another angle. I value her support and genuine interest in how I am feeling. Our sessions are helpful, and I am confident in a positive outcome. Thank you very much!",
+          originalText: reviewOriginals.valentina,
+        },
+        {
+          author: "Maria",
+          date: "14 September 2025",
+          text: "I had a session with Natalya and liked everything about it. She is a knowledgeable professional who understood the heart of the problem straight away and suggested ways of working through it. I would also like to mention the warm atmosphere Natalya created; she is easy and pleasant to talk to.",
+          originalText: reviewOriginals.maria,
+        },
+        {
+          author: "Roman",
+          date: "14 July 2025",
+          text: "I am sincerely grateful to Natalya for the consultation. She listened carefully to my doubts and helped me see the situation differently. Natalya's approach proved effective: with her help, I was able to articulate my decision clearly and feel confident about it. Her support was invaluable, and I now feel a sense of inner harmony and readiness to move forward. My deepest thanks to Natalya for her help and understanding!",
+          originalText: reviewOriginals.roman,
+        },
+        {
+          author: "Olga Vladimirovna Kandybka",
+          date: "28 March 2025",
+          text: "Natalya is very comfortable to talk to. We worked through the issue that had been worrying me. Thank you!",
+          originalText: reviewOriginals.olgaKandybka,
+        },
+        {
+          author: "Olga Vladimirovna",
+          date: "17 February 2025",
+          text: "I came to Natalya while going through a difficult period of change in my personal and professional life. Natalya conducted our first consultation professionally and sensitively. I had begun to think that something was wrong with me because people I considered closest to me had treated me with humiliation and disregard. This led to a prolonged loss of energy and motivation, as well as a fear of forming new connections. Thanks to Natalya, I felt my confidence, enjoyment of life and inner support return. Thank you 🙏",
+          originalText: reviewOriginals.olga,
+        },
+        {
+          author: "Avito user (account deleted)",
+          date: "27 January 2025",
+          text: "I consulted Natalya about misunderstandings in my relationships with relatives. I felt much better: I arrived carrying a heavy burden and left with relief. The tension was gone. After two sessions, my concern had been explored enough for me not to feel that weight any more. Later, I found the strength and courage to take the first step towards reconciliation. Thank you!",
+          originalText: reviewOriginals.deletedUser,
+        },
+        {
+          author: "Anna",
+          date: "22 January 2025",
+          text: "Yesterday I had my first session with Natalya. I came with a specific concern, which we broke down and examined step by step. We outlined a plan for the next few sessions. I feel hopeful now that there is light at the end of the tunnel. Thank you for the session.",
+          originalText: reviewOriginals.anna,
+        },
+        {
+          author: "Alyona",
+          date: "21 January 2025",
+          text: "I would like to thank Natalya for our session. Natalya listened to me and helped me see something I had not noticed before. I left with an understanding of what to do next. Thank you.",
+          originalText: reviewOriginals.alyona,
+        },
       ],
     },
     prices: {
