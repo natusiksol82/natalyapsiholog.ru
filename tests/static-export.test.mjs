@@ -15,7 +15,9 @@ test("exports a deployable static site", async () => {
     readFile(new URL("sitemap.xml", outputRoot), "utf8"),
   ]);
 
-  assert.match(html, /<html lang="ru">/);
+  assert.match(html, /<html lang="ru"[^>]*data-theme="mint"/);
+  assert.match(html, /id="theme-bootstrap"/);
+  assert.match(html, /requestedTheme === "classic" \? "classic" : "mint"/);
   assert.match(html, /<title>Психолог Наталья в Ростове-на-Дону \| Очно и онлайн<\/title>/);
   assert.match(html, new RegExp(`<link rel="canonical" href="${escapeRegex(expectedSiteUrl)}/?"`));
   assert.match(html, new RegExp(`<meta property="og:url" content="${escapeRegex(expectedSiteUrl)}/?"`));
@@ -30,7 +32,8 @@ test("exports a deployable static site", async () => {
   assert.match(html, /Спасибо большое Наталье, она помогла начать меняться в лучшую сторону/);
   assert.match(html, /Наталья - чуткий и внимательный специалист/);
 
-  assert.match(englishHtml, /<html lang="en">/);
+  assert.match(englishHtml, /<html lang="en"[^>]*data-theme="mint"/);
+  assert.match(englishHtml, /id="theme-bootstrap"/);
   assert.match(englishHtml, /<title>Psychologist Natalya in Rostov-on-Don \| In Person and Online<\/title>/);
   assert.match(englishHtml, new RegExp(`<link rel="canonical" href="${escapeRegex(expectedSiteUrl)}/en/"`));
   assert.match(englishHtml, new RegExp(`<meta property="og:url" content="${escapeRegex(expectedSiteUrl)}/en/"`));
