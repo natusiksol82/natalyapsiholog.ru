@@ -1,6 +1,7 @@
 import { content, type Locale, type SiteContent } from "./content";
 import { SiteHeader } from "./site-header";
 import { siteConfig } from "./site-config";
+import { EducationCarousel } from "./education-carousel";
 
 const avitoUrl = siteConfig.contacts.avito;
 const phoneHref = `tel:${siteConfig.contacts.phone.replace(/[^+\d]/g, "")}`;
@@ -121,9 +122,11 @@ export function LandingPage({ locale }: { locale: Locale }) {
       </section>
 
       <section className="about section" id="about">
-        <div className="about-title">
-          <p className="eyebrow"><span /> {page.about.eyebrow}</p>
-          <h2>{page.about.titleName}<br /><em>{page.about.titleRole}</em></h2>
+        <div className="about-title-boundary">
+          <div className="about-title">
+            <p className="eyebrow"><span /> {page.about.eyebrow}</p>
+            <h2>{page.about.titleName}<br /><em>{page.about.titleRole}</em></h2>
+          </div>
         </div>
         <div className="about-copy">
           <p className="about-lead">{page.about.lead}</p>
@@ -134,6 +137,7 @@ export function LandingPage({ locale }: { locale: Locale }) {
             ))}
           </div>
         </div>
+        <EducationCarousel locale={locale} />
       </section>
 
       <section className="reviews section" id="reviews">

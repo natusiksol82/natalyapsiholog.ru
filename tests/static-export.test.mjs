@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access, readFile } from "node:fs/promises";
+import { access, readFile, readdir } from "node:fs/promises";
 import test from "node:test";
 
 const outputRoot = new URL("../dist/client/", import.meta.url);
@@ -70,3 +70,28 @@ test("exports a deployable static site", async () => {
 function escapeRegex(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
+
+test("ships only small document previews without original PDFs or enlargement links", async () => {
+  const expected = [
+    "01-practical-psychology-2024-preview.webp",
+    "02-clinical-psychology-2026-preview.webp",
+    "03-cbt-theory-2024-preview.webp",
+    "04-anxiety-therapy-2025-preview.webp",
+    "05-cbt-practice-2025-preview.webp",
+  ];
+  const files = await readdir(new URL("education/", outputRoot));
+  assert.deepEqual(files.sort(), expected);
+  for (const filename of files) {
+    const bytes = await readFile(new URL(`education/${filename}`, outputRoot));
+    assert.equal(bytes.toString("ascii", 0, 4), "RIFF");
+    assert.equal(bytes.toString("ascii", 8, 12), "WEBP");
+    assert.ok(bytes.length < 100_000, "Preview must stay small");
+  }
+  for (const page of ["index.html", "en/index.html"]) {
+    const html = await readFile(new URL(page, outputRoot), "utf8");
+    assert.match(html, /class="credentials"/);
+    assert.match(html, /class="credential-track is-animated"/);
+    assert.doesNotMatch(html, /href="\/education\//);
+    assert.doesNotMatch(html, /credential-viewer/);
+  }
+});

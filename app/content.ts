@@ -108,11 +108,11 @@ export const content = {
       titleName: "Наталья,",
       titleRole: "практикующий психолог",
       lead: "Считаю, что хорошая терапия начинается с уважения к опыту человека и честного, внимательного контакта.",
-      text: "Имею диплом практического психолога ДГПУ. Прошла обучение на клинического психолога в Московском институте психоанализа и продолжаю регулярно повышать квалификацию.",
+      text: "Имею диплом практического психолога Донецкого государственного педагогического университета и диплом по клинической психологии Московского института психоанализа. Продолжаю повышать квалификацию в области когнитивно-поведенческой терапии и помощи при тревоге.",
       education: [
-        { label: "Образование", title: "Диплом практического психолога", institution: "ДГПУ" },
-        { label: "Повышение квалификации", title: "Профессиональные курсы", institution: "СПб ИДПО" },
-        { label: "Дополнительное обучение", title: "Клиническая психология", institution: "Московский институт психоанализа" },
+        { label: "Образование · 2024", title: "Практический психолог", institution: "Донецкий государственный педагогический университет" },
+        { label: "Переподготовка · 2026", title: "Клиническая психология", institution: "Московский институт психоанализа · 1500 часов" },
+        { label: "Курсы · 2024-2025", title: "КПТ и работа с тревогой", institution: "Санкт-Петербургский институт ДПО для психологов и психотерапевтов" },
       ],
     },
     reviews: {
@@ -284,11 +284,11 @@ export const content = {
       titleName: "Natalya,",
       titleRole: "practising psychologist",
       lead: "I believe good counselling begins with respect for each person's experience and honest, attentive contact.",
-      text: "I hold a degree in practical psychology from DGPU. I trained in clinical psychology at the Moscow Institute of Psychoanalysis and continue to update my professional qualifications regularly.",
+      text: "I hold professional retraining diplomas in practical psychology from Donetsk State Pedagogical University and in clinical psychology from the Moscow Institute of Psychoanalysis. I continue my professional development in cognitive behavioural therapy and therapeutic support with anxiety.",
       education: [
-        { label: "Education", title: "Degree in Practical Psychology", institution: "DGPU" },
-        { label: "Professional development", title: "Professional courses", institution: "SPb IDPO" },
-        { label: "Additional training", title: "Clinical Psychology", institution: "Moscow Institute of Psychoanalysis" },
+        { label: "Education · 2024", title: "Practical psychology", institution: "Donetsk State Pedagogical University" },
+        { label: "Retraining · 2026", title: "Clinical psychology", institution: "Moscow Institute of Psychoanalysis · 1,500 hours" },
+        { label: "Courses · 2024-2025", title: "CBT and anxiety support", institution: "St Petersburg Institute of Continuing Professional Education for Psychologists and Psychotherapists" },
       ],
     },
     reviews: {
