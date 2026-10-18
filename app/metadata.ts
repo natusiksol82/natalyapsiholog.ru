@@ -2,15 +2,8 @@ import type { Metadata } from "next";
 import { content, type Locale } from "./content";
 import { siteConfig } from "./site-config";
 
-const languageAlternates = {
-  "ru-RU": "/",
-  en: "/en/",
-  "x-default": "/",
-};
-
 export function createMetadata(locale: Locale): Metadata {
   const page = content[locale];
-  const alternateLocale = locale === "ru" ? ["en_US"] : ["ru_RU"];
 
   return {
     metadataBase: siteConfig.url,
@@ -19,12 +12,10 @@ export function createMetadata(locale: Locale): Metadata {
     keywords: [...page.seo.keywords],
     alternates: {
       canonical: page.path,
-      languages: languageAlternates,
     },
     openGraph: {
       type: "website",
       locale: page.seo.openGraphLocale,
-      alternateLocale,
       url: page.path,
       siteName: `${page.brand.role} ${page.brand.name}`,
       title: page.seo.openGraphTitle,
@@ -45,6 +36,7 @@ export function createMetadata(locale: Locale): Metadata {
       images: [page.seo.openGraphImage],
     },
     icons: { icon: "/favicon.svg?v=2" },
-    robots: { index: true, follow: true },
+    // Keep the English route for later, without promoting or indexing it.
+    robots: { index: locale === "ru", follow: true },
   };
 }

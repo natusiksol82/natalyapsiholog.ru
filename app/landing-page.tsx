@@ -58,7 +58,7 @@ export function LandingPage({ locale }: { locale: Locale }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <SiteHeader locale={locale} page={page} />
+      <SiteHeader page={page} />
 
       <section className="hero" id="top">
         <div className="hero-copy">

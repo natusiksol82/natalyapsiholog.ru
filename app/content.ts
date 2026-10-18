@@ -48,7 +48,7 @@ export const content = {
     languageSwitcherLabel: "Язык сайта",
     brand: {
       initial: "Н",
-      name: "Наталья",
+      name: "Наталья Углова",
       role: "практикующий психолог",
       homeLabel: "На главную",
     },

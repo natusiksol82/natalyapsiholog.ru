@@ -1,13 +1,11 @@
 "use client";
 
-/* eslint-disable @next/next/no-html-link-for-pages -- locale changes cross root layouts and must reload the document */
-
 import { useEffect, useRef, useState } from "react";
-import type { Locale, SiteContent } from "./content";
+import type { SiteContent } from "./content";
 
-type HeaderContent = Pick<SiteContent, "brand" | "navigation" | "languageSwitcherLabel">;
+type HeaderContent = Pick<SiteContent, "brand" | "navigation">;
 
-export function SiteHeader({ locale, page }: { locale: Locale; page: HeaderContent }) {
+export function SiteHeader({ page }: { page: HeaderContent }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -90,7 +88,6 @@ export function SiteHeader({ locale, page }: { locale: Locale; page: HeaderConte
       </nav>
 
       <div className="header-actions">
-        <LanguageSwitcher locale={locale} label={page.languageSwitcherLabel} className="header-language" />
         <a className="button button-small header-contact" href="#contacts">
           {page.navigation.contact}
         </a>
@@ -138,27 +135,7 @@ export function SiteHeader({ locale, page }: { locale: Locale; page: HeaderConte
             {page.navigation.contact}
           </a>
         </nav>
-        <LanguageSwitcher locale={locale} label={page.languageSwitcherLabel} className="menu-language" tabIndex={isMenuOpen ? 0 : -1} />
       </aside>
     </header>
-  );
-}
-
-function LanguageSwitcher({
-  locale,
-  label,
-  className,
-  tabIndex,
-}: {
-  locale: Locale;
-  label: string;
-  className?: string;
-  tabIndex?: number;
-}) {
-  return (
-    <div className={`language-switcher${className ? ` ${className}` : ""}`} aria-label={label}>
-      <a href="/" lang="ru" aria-current={locale === "ru" ? "page" : undefined} tabIndex={tabIndex}>RU</a>
-      <a href="/en/" lang="en" aria-current={locale === "en" ? "page" : undefined} tabIndex={tabIndex}>EN</a>
-    </div>
   );
 }

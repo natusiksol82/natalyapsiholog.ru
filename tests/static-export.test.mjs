@@ -21,8 +21,9 @@ test("exports a deployable static site", async () => {
   assert.match(html, /<title>Психолог Наталья в Ростове-на-Дону \| Очно и онлайн<\/title>/);
   assert.match(html, new RegExp(`<link rel="canonical" href="${escapeRegex(expectedSiteUrl)}/?"`));
   assert.match(html, new RegExp(`<meta property="og:url" content="${escapeRegex(expectedSiteUrl)}/?"`));
-  assert.match(html, new RegExp(`<link rel="alternate" hrefLang="en" href="${escapeRegex(expectedSiteUrl)}/en/"`));
-  assert.match(html, /href="\/en\/" lang="en"/);
+  assert.match(html, /<strong>Наталья Углова<\/strong>/);
+  assert.doesNotMatch(html, /hrefLang="en"|href="\/en\/"|language-switcher/);
+  assert.match(html, /<meta name="robots" content="index, follow"/);
   assert.doesNotMatch(html, /обучение завершено/);
   assert.match(html, /href="tel:\+79515064659"/);
   assert.match(html, /href="https:\/\/t\.me\/natalya_psy_rostov"/);
@@ -37,10 +38,10 @@ test("exports a deployable static site", async () => {
   assert.match(englishHtml, /<title>Psychologist Natalya in Rostov-on-Don \| In Person and Online<\/title>/);
   assert.match(englishHtml, new RegExp(`<link rel="canonical" href="${escapeRegex(expectedSiteUrl)}/en/"`));
   assert.match(englishHtml, new RegExp(`<meta property="og:url" content="${escapeRegex(expectedSiteUrl)}/en/"`));
-  assert.match(englishHtml, new RegExp(`<link rel="alternate" hrefLang="ru-RU" href="${escapeRegex(expectedSiteUrl)}/?"`));
   assert.match(englishHtml, /<meta property="og:locale" content="en_US"/);
   assert.match(englishHtml, new RegExp(`<meta property="og:image" content="${escapeRegex(expectedSiteUrl)}/og-en[.]png"`));
-  assert.match(englishHtml, /href="\/en\/" lang="en" aria-current="page"/);
+  assert.doesNotMatch(englishHtml, /language-switcher/);
+  assert.match(englishHtml, /<meta name="robots" content="noindex, follow"/);
   assert.match(englishHtml, /"inLanguage":"en"/);
   assert.match(englishHtml, /Moscow Institute of Psychoanalysis/);
   assert.doesNotMatch(englishHtml, /training completed/i);
@@ -56,8 +57,7 @@ test("exports a deployable static site", async () => {
 
   assert.match(robots, new RegExp(`Sitemap: ${escapeRegex(expectedSiteUrl)}/sitemap\\.xml`));
   assert.match(sitemap, new RegExp(`<loc>${escapeRegex(expectedSiteUrl)}/?</loc>`));
-  assert.match(sitemap, new RegExp(`<loc>${escapeRegex(expectedSiteUrl)}/en/</loc>`));
-  assert.match(sitemap, new RegExp(`hreflang="en" href="${escapeRegex(expectedSiteUrl)}/en/"`));
+  assert.doesNotMatch(sitemap, /\/en\/|hreflang="en"/);
 
   await Promise.all([
     access(new URL("favicon.svg", outputRoot)),
@@ -91,6 +91,7 @@ test("ships only small document previews without original PDFs or enlargement li
     const html = await readFile(new URL(page, outputRoot), "utf8");
     assert.match(html, /class="credentials"/);
     assert.match(html, /class="credential-track is-animated"/);
+    assert.doesNotMatch(html, /номера и подписи скрыты|numbers and signatures are hidden/);
     assert.doesNotMatch(html, /href="\/education\//);
     assert.doesNotMatch(html, /credential-viewer/);
   }

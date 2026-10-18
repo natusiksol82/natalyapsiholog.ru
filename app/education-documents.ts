@@ -46,12 +46,12 @@ export const educationLabels: Record<Locale, {
     title: "Документы об образовании", count: "2 диплома и 3 удостоверения",
     carousel: "Документы об образовании Натальи", previous: "Предыдущий документ", next: "Следующий документ",
     pause: "Пауза", play: "Продолжить", manual: "Смена вручную", goTo: "Показать документ",
-    copyNote: "Публичная копия: номера и подписи скрыты",
+    copyNote: "Уменьшенная копия: номера документов скрыты",
   },
   en: {
     title: "Education documents", count: "2 diplomas and 3 certificates",
     carousel: "Natalya's education documents", previous: "Previous document", next: "Next document",
     pause: "Pause", play: "Resume", manual: "Browse manually", goTo: "Show document",
-    copyNote: "Public copy: document numbers and signatures are hidden",
+    copyNote: "Small preview: document numbers are hidden",
   },
 };
